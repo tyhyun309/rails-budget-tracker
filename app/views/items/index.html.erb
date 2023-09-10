@@ -1,0 +1,11 @@
+<div class="container mt-3">
+  <h1>Expenses Spent</h1>
+  <div>
+    <% @items.each do |item| %>
+      <h5><%= item.category %> : </h5>
+      <h5><%= item.title %></h5>
+      <h5>¥<%= item.cost %></h5>
+    <% end %>
+    <%= link_to "+ New Item", new_item_path, class: 'btn btn-primary' %>
+  </div>
+</div>

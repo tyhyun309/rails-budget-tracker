@@ -1,0 +1,10 @@
+<%= form_with model: @item do |f| %>
+  <%= f.label :title , class:"m-1" %>
+  <%= f.text_field :title , class:"m-1" %>
+  <%= f.label :category , class:"m-1" %>
+  <%= f.text_field :category , class:"m-1" %>
+  <%= f.label :cost , class:"m-1" %>
+  <%= f.text_field :cost , class:"m-1" %>
+
+  <%= f.submit class: 'btn btn-primary m-1' %>
+<% end %>
