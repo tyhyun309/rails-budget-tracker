@@ -7,8 +7,13 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def category
+    @category = ['食費', '衣服', '日用品', '美容', '交通', '光熱', '通信', '娯楽', '医療', '他']
+  end
+
   def new
     @item = Item.new
+    @category_options = Item.all.map { |i| [ i.category, i.id] }
   end
 
   def create
