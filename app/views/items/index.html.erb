@@ -8,7 +8,7 @@
       <div class="alert alert-success"><span>Remaining: ¥ </span></div>
     </div>
     <div class="col-sm">
-      <div class="alert alert-primary"><span>Spent so far: ¥ </span></div>
+      <div class="alert alert-primary"><span>Spent so far: ¥ <%= item.spent_total %> </span></div>
     </div>
   </div>
 
@@ -17,8 +17,26 @@
     <div>
       <ul>
         <% @items.each do |item| %>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <%= item.category %> : <%= item.title %> ¥ <%= item.cost %> <%= item.spent_date %>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-3">
+                <%= item.category %> :
+              </div>
+              <div class="col-3">
+                <%= item.title %>
+              </div>
+              <div class="col-2">
+                ¥ <%= item.cost %>
+              </div>
+              <div class="col-3">
+                <%= item.spent_date %>
+              </div>
+              <div class="col-1">
+                <%= link_to item_path(item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <i class="fa-solid fa-trash"></i>
+                <% end %>
+              </div>
+            </div>
           </li>
         <% end %>
       </ul>
