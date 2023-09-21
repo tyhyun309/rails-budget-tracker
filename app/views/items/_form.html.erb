@@ -13,5 +13,11 @@
       <%= f.text_field :cost , class:"form-control" %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :spent_date , class:"form-label" %>
+      <%= f.date_select :spent_date , class:"form-control" %>
+    </div>
+  </div>
   <%= f.submit class: 'btn btn-primary m-1' %>
 <% end %>

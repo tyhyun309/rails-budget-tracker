@@ -18,7 +18,7 @@
       <ul>
         <% @items.each do |item| %>
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            <%= item.category %> : <%= item.title %> ¥ <%= item.cost %>
+            <%= item.category %> : <%= item.title %> ¥ <%= item.cost %> <%= item.spent_date %>
           </li>
         <% end %>
       </ul>
