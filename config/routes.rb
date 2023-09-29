@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: 'items#index'
   resources :items
+
+  resources :wallets
   # get '/items/new', to: 'items#new', as: :new_item
   # post '/items', to: 'items#create', as: :items
 
