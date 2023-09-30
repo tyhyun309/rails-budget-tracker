@@ -3,10 +3,13 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    # @wallet = Wallet.find(params[:wallet_id])
+
   end
 
   def show
     @item = Item.find(params[:id])
+    @wallet = Wallet.find(params[:wallet_id])
   end
 
   def category
@@ -51,7 +54,16 @@ class ItemsController < ApplicationController
     redirect_to items_path, status: :see_other
   end
 
+  def cost
+    @item = Item.find(params[:id])
+    @item_cost = @item.cost
+  end
+
   private
+
+  def wallet_params
+    params.require(:wallet).permit(:budget, :id)
+  end
 
   def item_params
     params.require(:item).permit(:title, :category, :cost, :spent_date, :wallet_id)
