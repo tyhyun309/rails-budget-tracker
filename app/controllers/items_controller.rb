@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, :verify_authenticity_token, only: :index
 
   def index
     @items = Item.all
@@ -15,12 +15,17 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @category_options = Item.all.map { |i| [ i.category, i.id] }
+    # @category_options = Item.all.map { |i| [ i.category, i.id] }
   end
 
   def create
     @item = Item.new(item_params)
+    # @wallet = Wallet.find(params[:wallet_id])
+    # @item.wallet = @wallet
+    # @user = current_user
+    # @item.user = @user
     if @item.save
+
       redirect_to item_path(@item)
     else
       render :new, status: :unprocessable_entity
@@ -49,6 +54,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :category, :cost, :spent_date)
+    params.require(:item).permit(:title, :category, :cost, :spent_date, :wallet_id)
   end
 end
