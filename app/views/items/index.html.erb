@@ -14,7 +14,7 @@
       <div class="alert alert-success"><span>Remaining: ¥ <%= wallet.budget - wallet.items.sum(:cost) %></span></div>
     </div>
     <div class="col-sm">
-      <div class="alert alert-primary"><span>Spent so far: ¥ <%#= user.spent_total %> </span></div>
+      <div class="alert alert-primary"><span>Spent so far: ¥ <%= wallet.items.sum(:cost) %> </span></div>
     </div>
   </div>
 
