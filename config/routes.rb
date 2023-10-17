@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root to: 'items#index'
-  resources :items
+  root to: 'wallets#index'
 
-  resources :wallets
+  resources :wallets do
+    resources :items
+
+  end
   # get '/items/new', to: 'items#new', as: :new_item
   # post '/items', to: 'items#create', as: :items
 

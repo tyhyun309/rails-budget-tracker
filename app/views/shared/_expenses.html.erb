@@ -1,8 +1,7 @@
-  
 <div class="container mt-3">
-  <div>
-    <ul>
-      <% @items.each do |item| %>
+  <% @wallet.items.each do |item| %>
+    <div>
+      <ul>
         <li class="list-group-item">
           <div class="row">
             <div class="col-3">
@@ -18,15 +17,13 @@
               <%= item.spent_date %>
             </div>
             <div class="col-1">
-              <%= link_to item_path(item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <%= link_to wallet_item_path(item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
                 <i class="fa-solid fa-trash"></i>
               <% end %>
             </div>
           </div>
         </li>
-      <% end %>
-    </ul>
-    <h3 class="mt-3">Add Expense</h3>
-    <%= link_to "+ New Item", new_item_path, class: 'btn btn-primary' %>
+
+      </ul>
+    <% end %>
   </div>
-</div>

@@ -3,13 +3,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    # @wallet = Wallet.find(params[:wallet_id])
-
   end
 
   def show
-    @item = Item.find(params[:id])
     @wallet = Wallet.find(params[:wallet_id])
+    @item = Item.find(params[:id])
   end
 
   def category
@@ -18,18 +16,17 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @wallet = Wallet.find(params[:wallet_id])
     # @category_options = Item.all.map { |i| [ i.category, i.id] }
   end
 
   def create
     @item = Item.new(item_params)
-    # @wallet = Wallet.find(params[:wallet_id])
-    # @item.wallet = @wallet
-    # @user = current_user
-    # @item.user = @user
+    @wallet = Wallet.find(params[:wallet_id])
+    @item.wallet = @wallet
     if @item.save
 
-      redirect_to item_path(@item)
+      redirect_to wallet_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -51,7 +48,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path, status: :see_other
+    redirect_to wallet_path, status: :see_other
   end
 
   def cost
