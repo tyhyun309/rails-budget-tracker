@@ -15,14 +15,14 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
     @wallet = Wallet.find(params[:wallet_id])
+    @item = Item.new
     # @category_options = Item.all.map { |i| [ i.category, i.id] }
   end
 
   def create
-    @item = Item.new(item_params)
     @wallet = Wallet.find(params[:wallet_id])
+    @item = Item.new(item_params)
     @item.wallet = @wallet
     if @item.save
 
