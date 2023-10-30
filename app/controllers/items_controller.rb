@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     @wallet = Wallet.find(params[:wallet_id])
 
     if @item.save
-      redirect_to wallet_path
+      redirect_to wallet_path(@wallet)
     else
       render :new, status: :unprocessable_entity
     end
@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   private
 
   def wallet_params
-    params.require(:wallet).permit(:budget, :id)
+    params.require(:wallet).permit(:budget, :id, :wallet_id)
   end
 
   def item_params
