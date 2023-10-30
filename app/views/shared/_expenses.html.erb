@@ -1,29 +1,27 @@
-<div class="container mt-3">
-  <% @wallet.items.each do |item| %>
-    <div>
-      <ul>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-3">
-              <%= item.category %> :
-            </div>
-            <div class="col-3">
-              <%= item.title %>
-            </div>
-            <div class="col-2">
-              ¥ <%= item.cost %>
-            </div>
-            <div class="col-3">
-              <%= item.spent_date %>
-            </div>
-            <div class="col-1">
-              <%= link_to wallet_item_path(@wallet, item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                <i class="fa-solid fa-trash"></i>
-              <% end %>
-            </div>
+<% @wallet.items.each do |item| %>
+  <div>
+    <ul>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-3">
+            <%= item.category %> :
           </div>
-        </li>
-
-      </ul>
-    <% end %>
+          <div class="col-3">
+            <%= item.title %>
+          </div>
+          <div class="col-2">
+            ¥ <%= item.cost %>
+          </div>
+          <div class="col-3">
+            <%= item.spent_date %>
+          </div>
+          <div class="col-1">
+            <%= link_to wallet_item_path(@wallet, item), class: 'text-dark', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
+<% end %>

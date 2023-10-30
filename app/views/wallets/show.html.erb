@@ -17,11 +17,12 @@
   </div>
 
   <h3 class="mt-3">Expenses</h3>
+  <div class="container">
+    <%= render "shared/expenses", item: @wallet.items  %>
 
-  <%= render "shared/expenses", item: @wallet.items  %>
+    <h4 class="mt-3">Add Expense</h4>
+    <%= link_to "+ New Item", new_wallet_item_path(@wallet), class: 'btn btn-primary' %>
+  </div>
 
-  <h3 class="mt-3">Add Expense</h3>
-  <%= link_to "+ New Item", new_wallet_item_path(@wallet), class: 'btn btn-primary' %>
-</div>
-
+  <%= link_to "🔀 Switch to Other Wallet 💰", wallets_path, class: 'btn btn-warning mt-3' %>
 </div>

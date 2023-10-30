@@ -1,9 +1,12 @@
-<h1>Add</h1>
-<%= form_with model: @wallet do |f| %>
-  <div>
-    <%= f.label :budget , class:"form-label" %>
-    <%= f.text_field :budget , class:"form-control" %>
+<div class="container">
+  <h1>Add</h1>
+  <%= form_with model: @wallet do |f| %>
+    <div>
+      <%= f.label :budget , class:"form-label" %>
+      <%= f.text_field :budget , class:"form-control" %>
 
-  </div>
-  <%= f.submit class: 'btn btn-primary m-1' %>
-<% end %>
+    </div>
+    <%= f.submit class: 'btn btn-primary m-1' %>
+  <% end %>
+
+</div>
