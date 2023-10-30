@@ -15,17 +15,16 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @wallet = Wallet.find(params[:wallet_id])
     @item = Item.new
+    @wallet = Wallet.find(params[:wallet_id])
     # @category_options = Item.all.map { |i| [ i.category, i.id] }
   end
 
   def create
-    @wallet = Wallet.find(params[:wallet_id])
     @item = Item.new(item_params)
-    @item.wallet = @wallet
-    if @item.save
+    @wallet = Wallet.find(params[:wallet_id])
 
+    if @item.save
       redirect_to wallet_path
     else
       render :new, status: :unprocessable_entity
@@ -39,7 +38,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to item_path(@item)
+      redirect_to wallet_item_path(@item)
     else
       render :edit, status: :unprocessable_entity
     end
