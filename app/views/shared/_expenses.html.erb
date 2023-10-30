@@ -17,7 +17,7 @@
               <%= item.spent_date %>
             </div>
             <div class="col-1">
-              <%= link_to wallet_item_path(item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <%= link_to wallet_item_path(@wallet, item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
                 <i class="fa-solid fa-trash"></i>
               <% end %>
             </div>
