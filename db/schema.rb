@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_29_061747) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_13_071633) do
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.string "category"
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_29_061747) do
     t.integer "spent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   add_foreign_key "items", "wallets"
