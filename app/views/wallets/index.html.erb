@@ -4,7 +4,7 @@
 
     <% @wallets.each do |wallet| %>
       <h3 class="btn btn-warning m-3 p-2">
-        <%= link_to "Wallet #{wallet.id} #{wallet.name}", wallet_path(wallet), class: 'text-secondary'%>
+        <%= link_to "Wallet #{wallet.name}", wallet_path(wallet), class: 'text-secondary'%>
       </h3>
     <% end %>
 

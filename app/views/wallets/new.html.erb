@@ -1,10 +1,9 @@
 <div class="container">
   <h2>Add New Wallet</h2>
-  <h4>Enter your budget (¥)</h4>
   <div class="container">
     <%= form_with model: @wallet do |f| %>
 
-      <%= f.label :budget , class:"form-label", style:"font-size:25px" %>
+      <%= f.label :budget , "Budget (¥)", class:"form-label", style:"font-size:25px" %>
       <%= f.text_field :budget , class:"form-control", style:"width:15%" %>
       <%= f.label :name , class:"form-label", style:"font-size:25px" %>
       <%= f.text_field :name , class:"form-control", style:"width:15%" %>
