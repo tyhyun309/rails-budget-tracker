@@ -1,12 +1,13 @@
 <div class="container">
-  <h1>Add</h1>
-  <%= form_with model: @wallet do |f| %>
-    <div>
-      <%= f.label :budget , class:"form-label" %>
-      <%= f.text_field :budget , class:"form-control" %>
+  <h2>Add New Wallet</h2>
+  <h4>Enter your budget (¥)</h4>
+  <div class="container">
+    <%= form_with model: @wallet do |f| %>
 
-    </div>
-    <%= f.submit class: 'btn btn-primary m-1' %>
-  <% end %>
-
+      <%= f.label :budget , class:"form-label", style:"font-size:25px" %>
+      <%= f.text_field :budget , class:"form-control", style:"width:15%" %>
+      <%= f.submit class: 'btn btn-primary mt-3' %>
+      <%= link_to "↩️ Back 💰", wallets_path, class: 'btn btn-dark btn-sm mt-3 mx-3' %>
+    <% end %>
+  </div>
 </div>
