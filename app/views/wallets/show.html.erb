@@ -25,4 +25,7 @@
   </div>
 
   <%= link_to "🔀 Switch to Other Wallet 💰", wallets_path, class: 'btn btn-warning mt-3' %>
+  <%= link_to wallet_path(@wallet), class: 'btn btn-danger mt-3', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    🗑 Delete this Wallet ‼️
+  <% end %>
 </div>

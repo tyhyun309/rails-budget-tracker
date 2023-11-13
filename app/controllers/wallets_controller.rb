@@ -22,9 +22,15 @@ class WalletsController < ApplicationController
     end
   end
 
+  def destroy
+    @wallet = Wallet.find(params[:id])
+    @wallet.destroy
+    redirect_to wallets_path, status: :see_other
+  end
+
   private
 
   def wallet_params
-    params.require(:wallet).permit(:budget, :id, :name)
+    params.require(:wallet).permit(:budget, :id, :name, :wallet_id)
   end
 end
