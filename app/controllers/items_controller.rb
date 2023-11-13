@@ -22,7 +22,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @wallet = Wallet.find(params[:wallet_id])
+
+    # @wallet = Wallet.find(params[:wallet_id])
 
     if @item.save
       redirect_to wallet_path(@wallet)
