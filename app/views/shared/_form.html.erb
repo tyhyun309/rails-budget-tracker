@@ -22,10 +22,9 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <% f.label :wallet_id , class:"form-label" %>
-      <% f.text_field :wallet_id , class:"form-control" %>
+      Adding to <%= f.label :wallet_id , class:"form-label" %>
+      <%= @wallet.name %>
     </div>
   </div>
-  <% @wallet.id == :wallet_id %>
   <%= f.submit class: 'btn btn-primary m-1' %>
 <% end %>
