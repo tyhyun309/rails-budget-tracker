@@ -6,7 +6,7 @@
       <%= f.text_field :title , class:"form-control" %>
     </div>
     <div class="col-md-6">
-      <%= f.label :category , class:"form-label" %>
+      <%= f.label :category , class:"form-label" %><br>
       <%= f.select :category, ['食費', '衣服', '日用品', '美容', '交通', '光熱', '通信', '娯楽', '医療', '他'] %>
     </div>
     <div class="col-md-2">
@@ -14,17 +14,18 @@
       <%= f.text_field :cost , class:"form-control" %>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-6">
       <%= f.label :spent_date , class:"form-label" %>
       <%= f.date_select :spent_date , class:"form-control" %>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-4">
     <div class="col-md-6">
-      Adding to <%= f.label :wallet_id , class:"form-label" %>
-      <%= @wallet.name %>
+      <h4>Adding to <%= f.label :wallet_id , class:"form-label" %>
+        <%= @wallet.name %></h4>
     </div>
   </div>
   <%= f.submit class: 'btn btn-primary m-1' %>
+  <%= link_to "Back", wallet_path(@wallet), class: 'btn btn-secondary' %>
 <% end %>
