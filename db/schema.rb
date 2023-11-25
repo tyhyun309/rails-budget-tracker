@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_25_122746) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_25_141047) do
   create_table "budget_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,8 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_122746) do
     t.integer "budget"
     t.integer "spent"
     t.string "name"
-    t.integer "budget_user_id", null: false
-    t.index ["budget_user_id"], name: "index_budget_wallets_on_budget_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -77,6 +75,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_122746) do
   end
 
   add_foreign_key "budget_items", "budget_wallets"
-  add_foreign_key "budget_wallets", "budget_users"
   add_foreign_key "items", "wallets"
 end

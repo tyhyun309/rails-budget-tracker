@@ -24,7 +24,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     @wallet = Wallet.find(params[:wallet_id])
-    @item.wallet_id = params[:wallet_id]
+    @item.wallet_id = @wallet.id
+    @item.budget_wallet_id = @wallet.id
 
     if @item.save
       redirect_to wallet_path(@wallet)
@@ -60,10 +61,10 @@ class ItemsController < ApplicationController
   private
 
   def wallet_params
-    params.require(:wallet).permit(:budget, :id, :wallet_id)
+    params.require(:wallet).permit(:budget, :id, :wallet_id, :budget_wallet_id, :budget_item_id)
   end
 
   def item_params
-    params.require(:item).permit(:title, :category, :cost, :spent_date, :wallet_id)
+    params.require(:item).permit(:title, :category, :cost, :spent_date, :wallet_id, :budget_wallet_id, :budget_item_id)
   end
 end
