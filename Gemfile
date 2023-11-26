@@ -30,6 +30,8 @@ gem "jbuilder"
 gem "devise"
 gem 'webpacker', '~> 4.x'
 gem "pg", "~> 1.5"
+gem 'psych', '~> 3.1'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
