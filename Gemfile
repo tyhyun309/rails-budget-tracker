@@ -28,7 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "devise"
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 4.x'
 gem "pg", "~> 1.5"
 
 # Use Redis adapter to run Action Cable in production
